@@ -70,6 +70,20 @@ let email = '';
 
 for(i of usuarios){
 
+    function social(array){
+        let social = '';
+    
+        for(item of array){
+            social += `
+                <ul>
+                <li>${item.url}</li>
+                </ul>
+            `
+        }
+    
+        return social;
+    }  
+
     if(i.correo.includes('@academlo.com')){
         email += `
         <table border="1">
@@ -93,6 +107,10 @@ for(i of usuarios){
                     <td>Género</td>
                     <td>${i.genero}</td>
                 </tr>
+                <tr colspan="2">
+                  <td>Social</td>
+                  <td>${social(i.social)}</td>
+              </tr>
             </tbody>
         </table>
         `
@@ -106,6 +124,20 @@ ejercicioUno.innerHTML = email;
 let rangeAge = '';
 
 for(i of usuarios){
+
+    function social(array){
+        let social = '';
+    
+        for(item of array){
+            social += `
+                <ul>
+                <li>${item.url}</li>
+                </ul>
+            `
+        }
+    
+        return social;
+    }  
 
     if(i.edad <= 40 && i.edad >= 20){
         rangeAge += `
@@ -130,6 +162,10 @@ for(i of usuarios){
                     <td>Género</td>
                     <td>${i.genero}</td>
                 </tr>
+                <tr colspan="2">
+                  <td>Social</td>
+                  <td>${social(i.social)}</td>
+              </tr>
             </tbody>
         </table>
         `
@@ -140,42 +176,26 @@ ejercicioDos.innerHTML = rangeAge;
 
 // -----------------------------------------
 
-{
-  // allInfo += `
-  //     <table border="1">
-  //         <thead>
-  //             <th colspan="2">User</th>
-  //         </thead>
-  //         <tbody>
-  //             <tr>
-  //                 <td>Nombre</td>
-  //                 <td>${i.nombre}</td>
-  //             </tr>
-  //             <tr>
-  //                 <td>Edad</td>
-  //                 <td>${i.edad}</td>
-  //             </tr>
-  //             <tr>
-  //                 <td>Correo</td>
-  //                 <td>${i.correo}</td>
-  //             </tr>
-  //             <tr>
-  //                 <td>Género</td>
-  //                 <td>${i.genero}</td>
-  //             </tr>
-  //             <tr colspan="2">
-  //                 <td>Social</td>
-  //                 <td>${social[j]}</td>
-  //             </tr>
-  //         </tbody>
-  //     </table>
-  //     `
-}
 
 let allInfo = '';
-let obj = {};
 
 for(i of usuarios){
+
+function social(array){
+    let social = '';
+
+    for(item of array){
+        social += `
+            <ul>
+            <li>${item.url}</li>
+            </ul>
+        `
+    }
+
+    return social;
+}    
+
+
        allInfo += `
       <table border="1">
           <thead>
@@ -200,7 +220,7 @@ for(i of usuarios){
               </tr>
               <tr colspan="2">
                   <td>Social</td>
-                  <td>${i.social[0].url} ${i.social[1].url}</td>
+                  <td>${social(i.social)}</td>
               </tr>
           </tbody>
       </table>
